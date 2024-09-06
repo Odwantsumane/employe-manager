@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div>
+    <h3 class="mt-4">Sign In</h3>
+    <p>Please enter your login details</p>
+    <form class="form-group p-5 mt-1 mb-5 me-5 mb-5 bg-light">
+        <p *ngIf="incorrect" class="text-danger">Username or Password incorrect</p>
+        <input class="form-control m-1" name="username" [(ngModel)]="username" type="text" required>
+        <input class="form-control m-1" name="password" [(ngModel)]="password" type="password" required>
+        <input class="btn btn-success w-100" (click)="handleLogin()" value="Login"  >
+
+    </form>
+</div>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import bootstrap from '../../main.server';
+import { RouterLink } from '@angular/router';
+import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -9,4 +12,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private authenticate: AuthenticationService) {}
+
+  ngOnInit() {
+    
+  }
 }
