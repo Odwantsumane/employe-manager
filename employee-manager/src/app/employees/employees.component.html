@@ -12,30 +12,15 @@
                 <th>Years</th>
             </tr>  
         </thead>
-        <tbody>
-            <tr>
-                <td>Odwa</td>
-                <td>Ntsumane</td>
-                <td>Integration Engineer</td>
-                <td>Senior</td>
-                <td>R30 000 - 40 000</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>Aphelele</td>
-                <td>Mahlekelele</td>
-                <td>Front-End Developer</td>
-                <td>Junior</td>
-                <td>R5 000 - 10 000</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Yonela</td>
-                <td>Qwayede</td>
-                <td>Microbiologist</td>
-                <td>Intermediate</td>
-                <td>R20 000 - 30 000</td>
-                <td>2</td>
+        <tbody *ngIf="loading" class="d-flex justify-content-end m-4"><tr><div class="spinner-border text-muted"></div></tr></tbody>
+        <tbody *ngIf="!loading">
+            <tr *ngFor="let employee of EmployeeList">
+                <td>{{employee.name}}</td>
+                <td>{{employee.surname}}</td>
+                <td>{{employee.role}}</td>
+                <td>{{employee.position}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.years}}</td>
             </tr>
         </tbody>
     </table>

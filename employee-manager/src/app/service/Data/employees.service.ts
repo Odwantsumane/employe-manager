@@ -4,7 +4,7 @@ import { provideHttpClient, withFetch, HttpClient } from '@angular/common/http';
 
 
 export class Employee {
-  constructor(Name:string,Surname:string,Role:string,Position:string,Salary:string,Years:string){};
+  constructor(public name:string,public surname:string,public role:string,public position:string,public salary:string,public years:string){};
 }
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,6 @@ export class EmployeesService {
   constructor(private http: HttpClient) { }
 
   getAllEmployees() {
-    return this.http.get<Employee>(`http://localhost:4004/AllEmployees`);
+    return this.http.get<Array<Employee>>(`http://localhost:4004/AllEmployees`);
   }
 }

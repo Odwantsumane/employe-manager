@@ -2,10 +2,22 @@
     <h3 class="mt-4">Sign In</h3>
     <p>Please enter your login details</p>
     <form class="form-group p-5 mt-1 mb-5 me-5 mb-5 bg-light">
-        <p *ngIf="incorrect" class="text-danger">Username or Password incorrect</p>
-        <input class="form-control m-1" name="username" [(ngModel)]="username" type="text" required>
-        <input class="form-control m-1" name="password" [(ngModel)]="password" type="password" required>
+        <p *ngIf="incorrect" class="alert alert-danger">Username or Password incorrect</p>
+        <input class="form-control m-1" name="username" placeholder="name@gmail.com" [(ngModel)]="username" type="text" required>
+        <input class="form-control m-1" name="password" placeholder="password" [(ngModel)]="password" type="password" required>
+        <div class=" flex-row d-flex justify-content-center">
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="employee" name="optradio" value="option1">Employee
+                <label class="form-check-label" for="employee"></label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" id="employer" name="optradio" value="option2">Employer
+                <label class="form-check-label" for="employer"></label>
+            </div>
+        </div>
+        
+        
         <input class="btn btn-success w-100" (click)="handleLogin()" value="Login"  >
-
+        
     </form>
 </div>
