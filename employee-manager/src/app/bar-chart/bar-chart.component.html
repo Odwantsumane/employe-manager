@@ -6,25 +6,30 @@
   <title>Bar Chart</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body> -->
-
+<body> --> 
 <div class="bar-chart mt-4">
-    <div class="bar-container">
-        <div class="bar" style="height: 250px; background-color: #3498db;"></div>
-        <span class="label">John Cena</span>
-        <span class="value">36h</span>
+    <div class="bar-container h-100">
+        <div class="bar" 
+        [style.height.%]="(empList[0].hoursWorked/totalDayhours) * 100"
+        style="background-color: #3498db;"></div>
+        <span class="label">{{empList[0].name + " " + empList[0].surname}}</span>
+        <span class="value">{{empList[0].hoursWorked}}h</span>
     </div>
 
-    <div class="bar-container">
-        <div class="bar" style="height: 301px; background-color: #e74c3c;"></div>
-        <span class="label">Christiano Ronaldo</span>
-        <span class="value">41h</span>
+    <div class="bar-container h-100">
+        <div class="bar"
+        [style.height.%]="(empList[1].hoursWorked/totalDayhours) * 100"
+         style="background-color: #e74c3c;"></div>
+        <span class="label">{{empList[1].name + " " + empList[1].surname}}</span>
+        <span class="value">{{empList[1].hoursWorked}}h</span>
     </div>
 
-    <div class="bar-container">
-        <div class="bar" style="height: 300px; background-color: #2ecc71;"></div>
-        <span class="label">Messi</span>
-        <span class="value">40h</span>
+    <div class="bar-container h-100">
+        <div class="bar" 
+        [style.height.%]="(empList[2].hoursWorked/totalDayhours) * 100"
+        style="background-color: #2ecc71;"></div>
+        <span class="label">{{empList[2].name + " " + empList[2].surname}}</span>
+        <span class="value">{{empList[2].hoursWorked}}h</span>
     </div>
 
     <div class="bar-container">

@@ -46,7 +46,12 @@
             <option>05</option>
         </select>
     </div>
+    <section class="section-1-bar" *ngIf="EmployeeList.length > 0">
+        <app-bar-chart [empList]="EmployeeList"></app-bar-chart>
+    </section>
+
     
-    <app-bar-chart></app-bar-chart>
+    <a (click)="refresh()"  class="btn btn-success">Refresh Graph</a>
+    
 </div>
 

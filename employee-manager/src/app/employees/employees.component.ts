@@ -40,7 +40,7 @@ export class EmployeesComponent {
     //console.log(response.pop());
     this.loading = false;
     this.EmployeeList = response;
-    //console.log(response[0].name);
+    //console.log(response);
   }
 
   handleError(error:Object) {
