@@ -1,6 +1,6 @@
 <div>
     <div class="d-flex justify-content-center mt-4">
-        <select class="form-select" style="width: fit-content;">
+        <select class="form-select" style="width: fit-content;" (change)="onSelect($event)" name="chart"> <!--[(ngModel)]="selectedChart"-->
             <option class="text-muted">Charts</option>
             <option>Bar Chart</option>
             <option>Pie Chart</option>
@@ -46,12 +46,12 @@
             <option>05</option>
         </select>
     </div>
-    <section class="section-1-bar" *ngIf="EmployeeList.length > 0">
-        <app-bar-chart [empList]="EmployeeList"></app-bar-chart>
+    <section class="section-1-bar justify-content-around flex-wrap" *ngIf="EmployeeList.length > 0" [ngStyle]="currentStyles">
+        <app-bar-chart *ngIf="BarChartDisplay" [empList]="EmployeeList"></app-bar-chart>
+        <app-pie-chart *ngIf="PiechartDisplay" [empList]="EmployeeList"></app-pie-chart>
     </section>
 
     
-    <a (click)="refresh()"  class="btn btn-success">Refresh Graph</a>
-    
+    <a (click)="refresh()"  class="btn btn-success" *ngIf="BarChartDisplay">Refresh Bar</a>
 </div>
 

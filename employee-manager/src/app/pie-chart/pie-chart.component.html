@@ -1,0 +1,28 @@
+<div class="chart-container">
+    <div class="pie-chart" [ngStyle]="currentStyles"></div> <!--[ngStyle]="currentStyles"-->
+
+    <div class="legend">
+      <div class="legend-item">
+        <span class="color-box" style="background-color: #ff6347;"></span>
+        <span>Employee A (6 hours)</span>
+      </div>
+      <div class="legend-item">
+        <span class="color-box" style="background-color: #4682b4;"></span>
+        <span>Employee B (5 hours)</span>
+      </div>
+      <div class="legend-item">
+        <span class="color-box" style="background-color: #3cb371;"></span>
+        <span>Employee C (4 hours)</span>
+      </div>
+      <div class="legend-item">
+        <span class="color-box" style="background-color: #ffeb3b;"></span>
+        <span>Employee D (3 hours)</span>
+      </div>
+      <div class="legend-item">
+        <span class="color-box" style="background-color: #8a2be2;"></span>
+        <span>Employee E (6 hours)</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn btn-secondary" (click)="setStyles()">Refresh Pie</a>

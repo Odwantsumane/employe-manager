@@ -1,21 +1,37 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bar Chart</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body> --> 
-<div class="bar-chart mt-4">
+ 
+<div class="bar-chart mt-5">
 
     <div *ngFor="let employee of empList" class="bar-container h-100">
-        <div class="bar" 
+        <div class="bar m-1" 
         [style.height.%]="(employee.hoursWorked/totalDayhours) * 100"
-        style="background-color: #3498db;"></div>
-        <span class="label">{{employee.name + " " + employee.surname}}</span>
+        style="background-color: #3498db;"
+        data-bs-toggle="tooltip" data-bs-placement="top" title="{{employee.name + ' ' + employee.surname}}"></div>
+        <!-- <span class="label">{{employee.name}}</span> -->
         <span class="value">{{employee.hoursWorked}}h</span>
     </div>
+
+    <div class="legend">
+        <div class="legend-item">
+          <span class="color-box" style="background-color: #ff6347;"></span>
+          <span>Employee A</span>
+        </div>
+        <div class="legend-item">
+          <span class="color-box" style="background-color: #4682b4;"></span>
+          <span>Employee B </span>
+        </div>
+        <div class="legend-item">
+          <span class="color-box" style="background-color: #3cb371;"></span>
+          <span>Employee C</span>
+        </div>
+        <div class="legend-item">
+          <span class="color-box" style="background-color: #ffeb3b;"></span>
+          <span>Employee D</span>
+        </div>
+        <div class="legend-item">
+          <span class="color-box" style="background-color: #8a2be2;"></span>
+          <span>Employee E</span>
+        </div>
+      </div>
 
     <!-- <div class="bar-container h-100">
         <div class="bar"

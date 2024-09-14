@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class BarChartComponent {
 
   totalDayhours: number = 8; 
+  color: String = "#3498db";
 
   @Input() empList: Array<Employee> = [];
 
