@@ -1,11 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Employee } from '../service/Data/employees.service';
 import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bar-chart',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.css'
 })
