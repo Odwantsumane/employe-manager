@@ -45,21 +45,23 @@ export class PieChartComponent implements OnInit {
 
   setStyles() {
     
-    console.log(this.empList[3].hoursWorked/this.totalNumOfHours * 100);
-    console.log(this.empList[4].hoursWorked/this.totalNumOfHours * 100);
+    // console.log(this.empList[3].hoursWorked/this.totalNumOfHours * 100);
+    // console.log(this.empList[4].hoursWorked/this.totalNumOfHours * 100);
      
     this.currentStyles = {
       'background': `conic-gradient(
         #ff6347 0% ${this.empList[0].hoursWorked/this.totalNumOfHours * 100}%,   /* Employee A (6 hours) */
         #4682b4 ${this.empList[0].hoursWorked/this.totalNumOfHours * 100}% ${this.empList[1].hoursWorked/this.totalNumOfHours * 100}%,  /* Employee B (5 hours) */
         #3cb371 ${this.empList[1].hoursWorked/this.totalNumOfHours * 100}% ${this.empList[2].hoursWorked/this.totalNumOfHours * 100}%,  /* Employee C */
-        #ffeb3b ${this.empList[2].hoursWorked/this.totalNumOfHours * 100}% ${this.empList[3].hoursWorked/this.totalNumOfHours * 100}%,  /* Employee D */
-        #8a2be2 ${this.empList[3].hoursWorked/this.totalNumOfHours * 100}% ${this.empList[4].hoursWorked/this.totalNumOfHours * 100}%,  /* Employee E */
-        #ff6347 ${this.empList[4].hoursWorked/this.totalNumOfHours * 100}% ${this.empList[5].hoursWorked/this.totalNumOfHours * 100}%,  /* Employee E */
-        #4682b4 ${this.empList[5].hoursWorked/this.totalNumOfHours * 100}% 100%  /* Employee E */
+        #ffeb3b ${this.empList[2].hoursWorked/this.totalNumOfHours * 100}% 100%,   
+         
         
       )`,
     };
+
+     // #8a2be2 ${this.empList[3].hoursWorked/this.totalNumOfHours * 100}% ${this.empList[4].hoursWorked/this.totalNumOfHours * 100}%, 
+        // #ff6347 ${this.empList[4].hoursWorked/this.totalNumOfHours * 100}% ${this.empList[5].hoursWorked/this.totalNumOfHours * 100}%,   
+        // #4682b4 ${this.empList[5].hoursWorked/this.totalNumOfHours * 100}% 100%
     
   }
 }
