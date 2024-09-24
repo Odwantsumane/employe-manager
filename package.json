@@ -1,0 +1,19 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "employee manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Odwantsumane/employe-manager.git"
+  },
+  "author": "Odwa Ntsumane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Odwantsumane/employe-manager/issues"
+  },
+  "homepage": "https://github.com/Odwantsumane/employe-manager#readme"
+}
