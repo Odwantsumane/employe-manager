@@ -3,11 +3,14 @@ import { EmployeesService } from '../service/Data/employees.service';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { Employee } from '../service/Data/employees.service';
 import { CommonModule } from '@angular/common';
+import { AddEmployeeComponent } from '../add-employee/add-employee.component';
+import { FormsModule } from '@angular/forms';
+import { AddEmployee2Component } from '../add-employee2/add-employee2.component';
 
 @Component({
   selector: 'app-employees',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AddEmployeeComponent, FormsModule, AddEmployee2Component],
   templateUrl: './employees.component.html',
   providers: [],
   styleUrl: './employees.component.css'
@@ -16,6 +19,7 @@ export class EmployeesComponent {
 
   EmployeeList : Array<Employee> = [];
   loading : boolean = false;
+  Refreshing : boolean = false;
 
   constructor(private getAllEmployeeDetails: EmployeesService) {}
 
@@ -30,10 +34,14 @@ export class EmployeesComponent {
   }
 
   getAllEmployees() {
+    this.Refreshing = true;
+
     this.getAllEmployeeDetails.getAllEmployees().subscribe(
       response => this.handleSuccess(response),
       error => this.handleError(error)
     );
+
+    if(!this.loading) this.Refreshing = false;
   }
 
   handleSuccess(response:Array<Employee>) {

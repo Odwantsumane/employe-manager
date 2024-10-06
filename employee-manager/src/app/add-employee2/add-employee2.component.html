@@ -1,0 +1,80 @@
+<div class="container mt-3">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+      New Employee
+    </button>
+  </div>
+  
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">New Employee</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body form-group" >
+            
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <label for="name" class="ms-2">Name*</label>  
+                <div class="input-group m-2"> 
+                    <input id="name" name="name" class="form-control" type="text" [(ngModel)]="FormData.name" required/>
+                </div>
+                <p class="text-danger" *ngIf="FormData.name === '' && submitted">This field is required</p>
+                <label for="surname" class="ms-2">Surname</label>
+                <div class="input-group m-2"> 
+                    <!-- <span class="input-group-text">&#64;</span> -->
+                    <input id="surname" name="surname" class="form-control" type="text" [(ngModel)]="FormData.surname" required/>
+                </div>
+                <p class="text-danger" *ngIf="FormData.surname === '' && submitted">This field is required</p>
+                <label for="email" class="ms-2">Email</label>
+                <div class="input-group m-2">
+                    <input id="email" name="email" class="form-control" type="email" [(ngModel)]="FormData.email" required/>
+                    <span class="input-group-text">&#64;gmail.com</span>
+                </div>
+                <p class="text-danger" *ngIf="FormData.email === '' && submitted">This field is required</p>
+                <label for="role" class="ms-2">Role</label>
+                <div class="input-group m-2"> 
+                    <input id="role" name="role" class="form-control" type="text" [(ngModel)]="FormData.role" required/>
+                </div>
+                <p class="text-danger" *ngIf="FormData.role === '' && submitted">This field is required</p>
+                <label for="position" class="ms-2">Position</label>
+                <div class="input-group m-2"> 
+                    <input id="position" name="position" class="form-control" type="text" [(ngModel)]="FormData.position" required/>
+                </div>
+                <p class="text-danger" *ngIf="FormData.position === '' && submitted">This field is required</p>
+                <label for="salary" class="ms-2">Salary</label>
+                <div class="input-group m-2">
+                    <span class="input-group-text">R</span>
+                    <input id="salary" name="salary" class="form-control" type="text" [(ngModel)]="FormData.salary" required/>
+                </div>
+                <p class="text-danger" *ngIf="FormData.salary === '' && submitted">This field is required</p>
+                <label for="years" class="ms-2">Years</label>
+                <div class="input-group m-2"> 
+                    <input id="years" name="years" class="form-control" type="text" [(ngModel)]="FormData.years" required/> 
+                </div>
+                <p class="text-danger" *ngIf="FormData.years === '' && submitted">This field is required</p>
+
+                <div class="btn-group d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Add</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+                
+            </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <!-- <div class="modal-footer">
+            
+            
+        </div> -->
+  
+      </div>
+    </div>
+  </div>
+
+
+

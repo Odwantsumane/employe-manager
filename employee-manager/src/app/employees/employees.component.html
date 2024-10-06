@@ -1,6 +1,7 @@
 <div>
     <h3 class="mt-4">Employees</h3>
     <p class="">Here you will find all employee information</p>
+    <p *ngIf="Refreshing">Refreshing..</p>
     <table class="table table-hover mt-5">
         <thead> 
             <tr>
@@ -24,6 +25,7 @@
             </tr>
         </tbody>
     </table>
-
-    <button class="btn btn-secondary" (click)="getAllEmployees()">Click Here</button>
+    
+    <div><button class="btn btn-secondary ms-3" (click)="getAllEmployees()">Refresh</button> </div>
+    <app-add-employee2></app-add-employee2>
 </div>
