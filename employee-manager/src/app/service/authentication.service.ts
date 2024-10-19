@@ -1,19 +1,34 @@
 import { Injectable } from '@angular/core';
+import { Employee, EmployeesService } from './Data/employees.service';
+import { interval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+ success: boolean = false;
+ responseReceived: boolean = false;
+ username: string = "";
 
-  LoginAuth(username : string, password : string) : boolean{
+  constructor(private employee: EmployeesService) { }
 
-    if (username === "Odwa" && password === "1234") {
-      sessionStorage.setItem("user", username);
-      return true;
-    }
-    return false;
+  LoginAuth(username : string, password : number) : boolean{
+    this.username = username;
+
+    this.employee.getEmployee(password).subscribe(
+      response => this.handleSuccess(response),
+      error => this.handleError(error));
+
+      var count = setInterval(() => {
+        
+        if(this.responseReceived) {
+          clearInterval(count);
+        }
+          
+      }, 100);
+
+    return this.success;
   }
 
   isUserLoggedIn() : boolean {
@@ -24,5 +39,18 @@ export class AuthenticationService {
 
   loggout() : void {
     sessionStorage.removeItem("user");
+  }
+
+  handleSuccess(response: Employee) {
+    this.responseReceived = true;
+
+    if(this.username === response.name) this.success = true;
+    if (this.success) sessionStorage.setItem("user", response.name); 
+  }
+
+  handleError(error: any) {
+    this.responseReceived = true; 
+
+    console.log("Error: " + error);
   }
 }

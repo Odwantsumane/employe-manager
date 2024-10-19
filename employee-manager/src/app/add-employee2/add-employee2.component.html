@@ -24,37 +24,37 @@
                     <input id="name" name="name" class="form-control" type="text" [(ngModel)]="FormData.name" required/>
                 </div>
                 <p class="text-danger" *ngIf="FormData.name === '' && submitted">This field is required</p>
-                <label for="surname" class="ms-2">Surname</label>
+                <label for="surname" class="ms-2">Surname*</label>
                 <div class="input-group m-2"> 
                     <!-- <span class="input-group-text">&#64;</span> -->
                     <input id="surname" name="surname" class="form-control" type="text" [(ngModel)]="FormData.surname" required/>
                 </div>
                 <p class="text-danger" *ngIf="FormData.surname === '' && submitted">This field is required</p>
-                <label for="email" class="ms-2">Email</label>
+                <label for="email" class="ms-2">Email*</label>
                 <div class="input-group m-2">
                     <input id="email" name="email" class="form-control" type="email" [(ngModel)]="FormData.email" required/>
                     <span class="input-group-text">&#64;gmail.com</span>
                 </div>
                 <p class="text-danger" *ngIf="FormData.email === '' && submitted">This field is required</p>
-                <label for="role" class="ms-2">Role</label>
+                <label for="role" class="ms-2">Role*</label>
                 <div class="input-group m-2"> 
                     <input id="role" name="role" class="form-control" type="text" [(ngModel)]="FormData.role" required/>
                 </div>
                 <p class="text-danger" *ngIf="FormData.role === '' && submitted">This field is required</p>
-                <label for="position" class="ms-2">Position</label>
+                <label for="position" class="ms-2">Position*</label>
                 <div class="input-group m-2"> 
                     <input id="position" name="position" class="form-control" type="text" [(ngModel)]="FormData.position" required/>
                 </div>
                 <p class="text-danger" *ngIf="FormData.position === '' && submitted">This field is required</p>
-                <label for="salary" class="ms-2">Salary</label>
+                <label for="salary" class="ms-2">Salary*</label>
                 <div class="input-group m-2">
                     <span class="input-group-text">R</span>
-                    <input id="salary" name="salary" class="form-control" type="text" [(ngModel)]="FormData.salary" required/>
+                    <input id="salary" name="salary" class="form-control" type="number" [(ngModel)]="FormData.salary" required/>
                 </div>
                 <p class="text-danger" *ngIf="FormData.salary === '' && submitted">This field is required</p>
-                <label for="years" class="ms-2">Years</label>
+                <label for="years" class="ms-2">Years*</label>
                 <div class="input-group m-2"> 
-                    <input id="years" name="years" class="form-control" type="text" [(ngModel)]="FormData.years" required/> 
+                    <input id="years" name="years" class="form-control" type="number" [(ngModel)]="FormData.years" required/> 
                 </div>
                 <p class="text-danger" *ngIf="FormData.years === '' && submitted">This field is required</p>
 

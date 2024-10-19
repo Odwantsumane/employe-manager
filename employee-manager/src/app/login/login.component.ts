@@ -14,7 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   incorrect : boolean = false;
   username : string = '';
-  password : string = '';
+  password : number = 0;
+  submitted: boolean = false;
   isUserLoggedIn : boolean = false;
 
    constructor(private authenticate: AuthenticationService, private router: Router) {
@@ -22,10 +23,12 @@ export class LoginComponent {
    }
 
    handleLogin() : void {
+    this.submitted = true;
     //console.log(`${this.username} just logged in`);
-    this.incorrect = !this.authenticate.LoginAuth(this.username, this.password);
+    this.incorrect = !this.authenticate.LoginAuth(this.username,this.password); 
     if(!this.incorrect) {
       //this.router.navigate(['welcome', this.username]);
+      console.log("hello");
       this.router.navigate(['']);
     }
     
