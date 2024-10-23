@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  incorrect : boolean = false;
+  isAuthenticated : boolean = false;
+  incorrectCredentials : boolean = false;
   username : string = '';
-  password : number = 0;
+  password : string = '';
   submitted: boolean = false;
   isUserLoggedIn : boolean = false;
 
@@ -22,14 +23,16 @@ export class LoginComponent {
 
    }
 
-   handleLogin() : void {
+   async handleLogin() {
     this.submitted = true;
     //console.log(`${this.username} just logged in`);
-    this.incorrect = !this.authenticate.LoginAuth(this.username,this.password); 
-    if(!this.incorrect) {
-      //this.router.navigate(['welcome', this.username]);
-      console.log("hello");
+    (this.username === "" || this.password === "") ? this.incorrectCredentials = false : this.isAuthenticated = await this.authenticate.LoginAuth(this.username,this.password);
+       
+    if(this.isAuthenticated) {
+      //this.router.navigate(['welcome', this.username]); 
       this.router.navigate(['']);
+    } else {
+      (this.username === "" || this.password === "") ? this.incorrectCredentials = false : this.incorrectCredentials = true;
     }
     
    }

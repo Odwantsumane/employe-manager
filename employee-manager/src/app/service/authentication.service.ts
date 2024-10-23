@@ -6,29 +6,19 @@ import { interval } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
- success: boolean = false;
- responseReceived: boolean = false;
- username: string = "";
+ username: string = ""; 
 
   constructor(private employee: EmployeesService) { }
 
-  LoginAuth(username : string, password : number) : boolean{
-    this.username = username;
-
-    this.employee.getEmployee(password).subscribe(
-      response => this.handleSuccess(response),
-      error => this.handleError(error));
-
-      var count = setInterval(() => {
-        
-        if(this.responseReceived) {
-          clearInterval(count);
-        }
-          
-      }, 100);
-
-    return this.success;
+  LoginAuth(username : string, id : string) : Promise<boolean>{
+    this.username = username; 
+     
+    return new Promise((resolve, reject) => {this.employee.getEmployee(id).subscribe(response => {
+      resolve(this.handleSuccess(response));
+    },error => {
+      this.handleError(error);
+      reject(false);
+    })});
   }
 
   isUserLoggedIn() : boolean {
@@ -41,15 +31,13 @@ export class AuthenticationService {
     sessionStorage.removeItem("user");
   }
 
-  handleSuccess(response: Employee) {
-    this.responseReceived = true;
+  handleSuccess(response: Employee): boolean { 
 
-    if(this.username === response.name) this.success = true;
-    if (this.success) sessionStorage.setItem("user", response.name); 
+    if(this.username === response.name) {sessionStorage.setItem("user", response.name); return true;}
+    return false;
   }
 
-  handleError(error: any) {
-    this.responseReceived = true; 
+  handleError(error: any) { 
 
     console.log("Error: " + error);
   }
